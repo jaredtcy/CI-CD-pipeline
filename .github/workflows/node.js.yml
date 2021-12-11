@@ -30,14 +30,14 @@ jobs:
     - run: npm run build --if-present
     - run: npm test:staging
     - name: SSH Remote Commands
-       uses: appleboy/ssh-action@v0.1.4
-       with:
+      uses: appleboy/ssh-action@v0.1.4
+      with:
         key: ${{secrets.GOOGLE_CLOUD_VM_SSH}}
         host: ${{secrets.GOOGLE_CLOUD_VM_IP}}
         username: ${{GOOGLE_CLOUD_VM_USERNAME}}
         script: |
-        pm2 delete all
-        cd /var/app/Task-2
-        git pull
-        npm install
-        pm2 start npm -- start
+         pm2 delete all
+         cd /var/app/Task-2
+         git pull
+         npm install
+         pm2 start npm -- start
