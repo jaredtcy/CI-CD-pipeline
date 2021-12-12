@@ -1,3 +1,4 @@
+import { Controller, Get, HttpCode } from '@nestjs/common';
 const categories = require('../models/category');
 const questions = require('../models/question');
 const prompts = require('../models/prompt');
@@ -19,3 +20,8 @@ module.exports = {
   },
 };
 
+@Get()
+@HttpCode(200)
+getHello(): string {
+  return this.appService.getHello();
+}
