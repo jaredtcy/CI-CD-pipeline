@@ -21,7 +21,7 @@ This project involves the process of creating a CI/CD pipeline to identify new c
   ```
 2. Navigate to the directory where the file is being stored at 
   ```sh
-  cd Task-2
+  cd desktop
   ```
 3. Verify that the app is working
   ```sh
