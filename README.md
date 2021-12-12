@@ -62,7 +62,7 @@ Note:
 
 1. Access "Releases" (Located in the homepage of your project)
 2. Tag your release (E.g. v0.01) for easy identification purpose
-3. Publish release
+3. Select "Publish Release" to release the changes to the Production Environment
 4. Navigate to "Action Tab" and see that the "Deploy to Amazon ECS" action is being executed
 ![Screenshot 2021-12-12 at 4 43 54 PM](https://user-images.githubusercontent.com/83501266/145706017-672e7fdb-65c4-4ac3-b569-b08a947243b3.png)
 
