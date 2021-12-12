@@ -32,12 +32,12 @@ on:
       
 
 env:
-  AWS_REGION: ap-southeast-1                 # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: example-app          # set this to your Amazon ECR repository name
-  ECS_SERVICE: example-app-service                # set this to your Amazon ECS service name
-  ECS_CLUSTER: Task2-cluster               # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definit
-  CONTAINER_NAME: example-app           # set this to the name of the container in the
+  AWS_REGION: <Preferred AWS region>                # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: <ECR Repository name>          # set this to your Amazon ECR repository name
+  ECS_SERVICE: <ECS service name>                # set this to your Amazon ECS service name
+  ECS_CLUSTER: <Cluster name>               # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION: <Path of your taskdefinition.json file> # set this to the path to your Amazon ECS task definition.json file
+  CONTAINER_NAME: <name of container>          # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 jobs:
