@@ -58,7 +58,7 @@ Note:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-##Perform a release of the changes that has been made to the production environment and deploy it to Amazon ECS
+## Perform a release of the changes that has been made to the production environment and deploy it to Amazon ECS
 
 1. Access "Releases" (Located in the homepage of your project)
 2. Tag your release (E.g. v0.01) for easy identification purpose
