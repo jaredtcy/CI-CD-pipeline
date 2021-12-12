@@ -14,38 +14,64 @@ This project involves the process of creating a CI/CD pipeline to identify new c
 <!-- GETTING STARTED -->
 ## Getting Started
 
-1. Perform a clone of this github repository to your desktop
+**1. Perform a clone of this github repository to your desktop**
 
   ```sh
   $ git clone --bare https://github.com/jaredtcy/Task-2
   ```
-2. Navigate to the directory where the file is being stored at 
+**2. Navigate to the directory where the file is being stored at** 
   ```sh
   cd desktop
   ```
-3. Verify that the app is working
+**3. Verify that the app is working**
   ```sh
   npm install express
   ```
   ```sh
   node index.js
   ```
-4. Go to your browser to access the webpage [localhost:3000](http://localhost:3000/) which should look like:
+**4. Go to your browser to access the webpage [localhost:3000](http://localhost:3000/) which should look like:**
 
 (For the "Release" Branch):
 ![Screenshot 2021-12-12 at 2 11 45 PM](https://user-images.githubusercontent.com/83501266/145705615-57d41a1c-f163-4b8c-9976-a15dea3af713.png)
+Changes on the "Release" Branch can be made in the questionRepository.js file [here](https://github.com/jaredtcy/Task-2/blob/release/models/questionRepository.js)
 
 (For the "Staging" Branch):
 ![Screenshot 2021-12-12 at 2 39 19 PM](https://user-images.githubusercontent.com/83501266/145705706-7f6409fd-ccdf-40e8-89f2-87cd60a21376.png)
+Changes on the "Staging" Branch can be made in the questionRepository.js file [here](https://github.com/jaredtcy/Task-2/blob/staging/models/questionRepository.js)
 
-5. Perform a Git push of the files to your local Github repository
+**5. Perform a Git push of the files to your local Github repository**
   ```sh
   git push https://github.com/<Username>/<Location of file to store in>
   ```
 
-Note: 
--Changes on the "Release" Branch can be made in the questionRepository.js file [here](https://github.com/jaredtcy/Task-2/blob/release/models/questionRepository.js)
--Changes on the "Staging" Branch can be made in the questionRepository.js file [here](https://github.com/jaredtcy/Task-2/blob/staging/models/questionRepository.js)
+
+**6. Setting up Amazon ECS**
+
+- Creating a new Repository in ECS
+- Create a Task in ECS (Under Task Definitions)
+  - Choose Instance Type as Fargate
+  - Select Role as ecsTaskExecutionRole
+- Add a container with port mapping 3000 <Can add any desired port here>
+- Under task->Volumes, select "Configure Via JSON"
+- Paste the JSON code into a new file named [task-definition](https://github.com/jaredtcy/Task-2/blob/master/task-definition.json)
+- Create a new Target Group
+- Create a Load Balancer
+- Create a new Cluster in ECS
+- Create a new Service to Connect them
+  - Ensure that Target Group and Load Balancer is being selected as the option when configuring
+
+**7. Add a GitHub Action**
+- For the Deployment of the Application on ECS
+  - Navigate to "Actions" tab from the main page
+  - Select "Deploy to Amazon ECS", similar to [aws.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/aws.yml)
+  
+- For Building/Testing the Application 
+  - Navigate to "Actions" tab from the main page
+  - Select "Deploy to Amazon ECS", similar to [node.js.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/node.js.yml)
+
+
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
