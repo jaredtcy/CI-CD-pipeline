@@ -108,7 +108,7 @@ Changes on the "Staging" Branch can be made in the questionRepository.js file [h
 
 ## Configuring automated email to be sent out when a job fails
   
-1. From [aws.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/aws.yml) as well as [node.js.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/node.js.yml), a snippet of code has been added at the bottom to automate this email sending
+1. From [aws.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/aws.yml) as well as [node.js.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/node.js.yml), a snippet of code has been added at the bottom to automate an email to be send out when the workflow fails
    ```sh
       - name: Send mail
       if: ${{ failure() }}
@@ -129,7 +129,10 @@ Changes on the "Staging" Branch can be made in the questionRepository.js file [h
       # Required sender full name (address can be skipped):
         from: Jared Tan # <user@example.com>
     ```
- 2. For this project, Gmail is used for the automated sending of email. For more information on how we can configure Gmail settings to enable the sending of email, please refer to this [Documentation](https://github.com/dawidd6/action-send-mail)
+2. For this project, Gmail is used for the automated sending of email. For more information on how we can configure Gmail settings to enable the sending of email, please refer to this [Documentation](https://github.com/dawidd6/action-send-mail)
+
+3. Configuration of "MAIL_USERNAME" and "MAIL_PASSWORD" can be done from the Settings Tab > Secrets > New Repository Secret
+![Screenshot 2021-12-13 at 10 55 13 AM](https://user-images.githubusercontent.com/83501266/145745252-4f212322-db6f-47bb-83ad-70beb697a33e.png)
 
   
 <p align="right">(<a href="#top">back to top</a>)</p>
