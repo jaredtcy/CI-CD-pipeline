@@ -95,3 +95,23 @@ jobs:
         cluster: ${{ env.ECS_CLUSTER }}
         wait-for-service-stability: true
       continue-on-error: false
+      
+    - name: Send mail
+      if: ${{ failure() }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+      # Required mail server address:
+        server_address: smtp.gmail.com
+      # Required mail server port:
+        server_port: 465
+      # Optional (recommended): mail server username:
+        username: ${{secrets.MAIL_USERNAME}}
+      # Optional (recommended) mail server password:
+        password: ${{secrets.MAIL_PASSWORD}}
+      # Required mail subject:
+        subject: Github Actions job result
+      # Required recipients' addresses:
+        to: testing@example.com,test@example.com
+      # Required sender full name (address can be skipped):
+        from: Jared Tan # <user@example.com>
+
