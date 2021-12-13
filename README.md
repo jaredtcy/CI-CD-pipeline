@@ -85,6 +85,9 @@ Changes on the "Staging" Branch can be made in the questionRepository.js file [h
   ```sh
   continue-on-error: false
   ```
+
+Note: As of 13/12/2021, there is an ongoing bug for the Git Action when using the node.js yml template. More information can be found
+[here](https://github.com/actions/cache/issues/698)
   
   
 
@@ -132,7 +135,8 @@ Changes on the "Staging" Branch can be made in the questionRepository.js file [h
 2. For this project, Gmail is used for the automated sending of email. For more information on how we can configure Gmail settings to enable the sending of email, please refer to this [Documentation](https://github.com/dawidd6/action-send-mail)
 
 3. Configuration of "MAIL_USERNAME" and "MAIL_PASSWORD" can be done from the Settings Tab > Secrets > New Repository Secret
-![Screenshot 2021-12-13 at 10 55 13 AM](https://user-images.githubusercontent.com/83501266/145745252-4f212322-db6f-47bb-83ad-70beb697a33e.png)
+![Screenshot 2021-12-13 at 10 55 13 AM](https://user-images.githubusercontent.com/83501266/145745347-15e73135-2336-400b-a6c7-39cafce8ba11.png)
+
 
   
 <p align="right">(<a href="#top">back to top</a>)</p>
