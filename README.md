@@ -81,6 +81,12 @@ Changes on the "Staging" Branch can be made in the questionRepository.js file [h
 1. Access the "Release"/"Staging" Branch, perform an edit on any files and commit the change
 2. Observe the Actions being triggered in the "Actions" Tab (Located in the homepage if your project)
 ![Screenshot 2021-12-12 at 4 37 16 PM](https://user-images.githubusercontent.com/83501266/145705877-abe6d772-a027-4945-b7d7-6eed832710c2.png)
+3. Current workflow is configured to stop when any task fails. This can be edited accordingly in the node.js.yml file
+  ```sh
+  continue-on-error: false
+  ```
+  
+  
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -91,8 +97,40 @@ Changes on the "Staging" Branch can be made in the questionRepository.js file [h
 3. Select "Publish Release" to release the changes to the Production Environment
 4. Navigate to "Action Tab" and see that the "Deploy to Amazon ECS" action is being executed
 ![Screenshot 2021-12-12 at 4 43 54 PM](https://user-images.githubusercontent.com/83501266/145706017-672e7fdb-65c4-4ac3-b569-b08a947243b3.png)
+5. Current workflow is configured to stop when any task fails. This can be edited accordingly in the aws.yml file.
+  ```sh
+  continue-on-error: false
+  ```
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
+## Configuring automated email to be sent out when a job fails
+  
+1. From [aws.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/aws.yml) as well as [node.js.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/node.js.yml), a snippet of code has been added at the bottom to automate this email sending
+   ```sh
+      - name: Send mail
+      if: ${{ failure() }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+      # Required mail server address:
+        server_address: smtp.gmail.com
+      # Required mail server port:
+        server_port: 465
+      # Optional (recommended): mail server username:
+        username: ${{secrets.MAIL_USERNAME}}
+      # Optional (recommended) mail server password:
+        password: ${{secrets.MAIL_PASSWORD}}
+      # Required mail subject:
+        subject: Github Actions job result
+      # Required recipients' addresses:
+        to: testing@example.com,test@example.com
+      # Required sender full name (address can be skipped):
+        from: Jared Tan # <user@example.com>
+    ```
+ 2. For this project, Gmail is used for the automated sending of email. For more information on how we can configure Gmail settings to enable the sending of email, please refer to this [Documentation](https://github.com/dawidd6/action-send-mail)
+
+  
+<p align="right">(<a href="#top">back to top</a>)</p>
 
