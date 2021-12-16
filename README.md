@@ -45,14 +45,26 @@ Changes on the "Staging" Branch can be made in the questionRepository.js file [h
   git push https://github.com/<Username>/<Location of file to store in>
   ```
 
+**6. Setting up and running Dockerfile**
 
-**6. Setting up Amazon ECS**
+- Add a new [Dockerfile](https://github.com/jaredtcy/Task-2/blob/master/Dockerfile) inside the root directory 
+- Build your docker image from the same root directory of your project
+  ```sh
+  docker build . -t example-app
+  ```
+- Run your docker image 
+  ```sh
+  docker run --rm -it -p 3000:3000/tcp example-app:latest
+  ```
+
+**7. Setting up Amazon ECS**
 
 - Creating a new Repository in ECS
 - Create a Task in ECS (Under Task Definitions)
   - Choose Instance Type as Fargate
   - Select Role as ecsTaskExecutionRole
-- Add a container with port mapping 3000 <Can add any desired port here>
+- Add a container with port mapping 3000 
+  - Can add any desired port here,it should match the port that you are exposing from your [container](https://github.com/jaredtcy/Task-2/blob/master/Dockerfile)
 - Under task->Volumes, select "Configure Via JSON"
 - Paste the JSON code into a new file named [task-definition](https://github.com/jaredtcy/Task-2/blob/master/task-definition.json)
 - Create a new Target Group
@@ -61,7 +73,7 @@ Changes on the "Staging" Branch can be made in the questionRepository.js file [h
 - Create a new Service to Connect them
   - Ensure that Target Group and Load Balancer is being selected as the option when configuring
 
-**7. Add a GitHub Action**
+**8. Add a GitHub Action**
 - For the Deployment of the Application on ECS
   - Navigate to "Actions" tab from the main page
   - Select "Deploy to Amazon ECS", similar to [aws.yml workflow](https://github.com/jaredtcy/Task-2/blob/master/.github/workflows/aws.yml)
